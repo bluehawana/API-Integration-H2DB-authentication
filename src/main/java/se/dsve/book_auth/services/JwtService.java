@@ -26,17 +26,19 @@ public class JwtService {
 
     public String extractUsername(String token) {
         // TODO: Write your code here
-        return null;
+        return extractClaim(token, Claims::getSubject);
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         // TODO: Write your code here
-        return null;
+        final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
     }
 
     public String generateToken(UserDetails userDetails) {
         // TODO: Write your code here
-        return null;
+        return generateToken(new HashMap<>(), userDetails);
+
     }
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
@@ -53,31 +55,43 @@ public class JwtService {
             long expiration
     ) {
         // TODO: Write your code here
-        return null;
+        return Jwts.builder()
+                .setClaims(extraClaims)
+                .setSubject(userDetails.getUsername())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + expiration))
+                .signWith(getSignInKey(), SignatureAlgorithm.HS256)
+                .compact();
     }
 
     public boolean isTokenValid(String token, UserDetails userDetails) {
         // TODO: Write your code here
-        return false;
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername())) && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
         // TODO: Write your code here
-        return false;
+        return extractExpiration(token).before(new Date());
     }
 
     private Date extractExpiration(String token) {
         // TODO: Write your code here
-        return null;
+        return extractClaim(token, Claims::getExpiration);
     }
 
     private Claims extractAllClaims(String token) {
         // TODO: Write your code here
-        return null;
+        return Jwts.parserBuilder()
+                .setSigningKey(getSignInKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     private Key getSignInKey() {
         // TODO: Write your code here
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return null;
     }
 }

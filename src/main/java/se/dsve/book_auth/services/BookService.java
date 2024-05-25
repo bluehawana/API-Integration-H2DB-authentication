@@ -1,5 +1,6 @@
 package se.dsve.book_auth.services;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import se.dsve.book_auth.dtos.BookDto;
@@ -27,36 +28,53 @@ public class BookService {
 
     public List<Book> getAllBooks() {
         // TODO: Write your code here
-        return null;
+        return bookRepository.findAll();
     }
 
     public Optional<Book> getBookById(Long id) {
         // TODO: Write your code here
-        return null;
+        return bookRepository.findById(id);
     }
 
     public Book addBook(BookDto bookDto) {
         // TODO: Write your code here
-        return null;
+        Book book = new Book();
+        book.setTitle(bookDto.getTitle());
+        book.setAuthor(bookDto.getAuthor());
+        book.setIsbn(bookDto.getIsbn());
+        return bookRepository.save(book);
     }
 
     public Book updateBook(Long id, BookDto bookDto) {
         // TODO: Write your code here
-        return null;
+        Book book = getBookOrFail(id);
+        book.setTitle(bookDto.getTitle());
+        book.setAuthor(bookDto.getAuthor());
+        book.setIsbn(bookDto.getIsbn());
+        return bookRepository.save(book);
     }
+
 
     public void deleteBook(Long id) {
         // TODO: Write your code here
+        bookRepository.deleteById(id);
     }
 
     private Book getBookOrFail(Long id) {
         // TODO: Write your code here
-        return null;
+        return bookRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + id));
+    }
+    @PostConstruct
+    public void init() {
+        addPredefinedBooks();
     }
 
     public void addPredefinedBooks() {
-        bookRepository.save(new Book(null, "The Great Gatsby", "F. Scott Fitzgerald", "9780743273565"));
-        bookRepository.save(new Book(null, "To Kill a Mockingbird", "Harper Lee", "9780061120084"));
-        bookRepository.save(new Book(null, "1984", "George Orwell", "9780451524935"));
+        if (bookRepository.count() == 0) {
+            bookRepository.save(new Book(null, "The Great Gatsby", "F. Scott Fitzgerald", "9780743273565"));
+            bookRepository.save(new Book(null, "To Kill a Mockingbird", "Harper Lee", "9780061120084"));
+            bookRepository.save(new Book(null, "1984", "George Orwell", "9780451524935"));
+        }
     }
 }

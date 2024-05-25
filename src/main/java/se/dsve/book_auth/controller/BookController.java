@@ -28,20 +28,23 @@ public class BookController {
 
     @GetMapping
     public List<Book> getAllBooks() {
-        // TODO: Write your code here
-        return null;
+        // TODO: Write your code here;
+        return bookService.getAllBooks();
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         // TODO: Write your code here
-        return null;
+        Book book = bookService.getBookById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + id));
+        return ResponseEntity.ok(book);
     }
 
     @PostMapping
     public Book addBook(@RequestBody BookDto bookDto) {
         // TODO: Write your code here
-        return null;
+        return bookService.addBook(bookDto);
     }
 
     @PostMapping("/addPredefinedBooks")
@@ -52,13 +55,15 @@ public class BookController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody BookDto bookDto) {
-        // TODO: Write your code here
-        return null;
+        Book updatedBook = bookService.updateBook(id, bookDto);
+        return ResponseEntity.ok(updatedBook);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
         // TODO: Write your code here
-        return null;
+        bookService.deleteBook(id);
+        return ResponseEntity.noContent().build();
     }
 }

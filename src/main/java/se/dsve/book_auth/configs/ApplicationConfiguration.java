@@ -6,10 +6,15 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import se.dsve.book_auth.repository.UserRepository;
+
+import java.util.Collections;
 
 @Configuration
 public class ApplicationConfiguration {
@@ -22,20 +27,21 @@ public class ApplicationConfiguration {
 
     @Bean
     UserDetailsService userDetailsService() {
-        // TODO: Wriite your code here
-        return null;
+        // TODO: Write your code here
+        return username -> (UserDetails) userRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
-        // TODO: Wriite your code here
-        return null;
+        // TODO: Write your code here
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        // TODO: Wriite your code here
-        return null;
+        // TODO: Write your code here
+        return config.getAuthenticationManager();
     }
 
     @Bean
