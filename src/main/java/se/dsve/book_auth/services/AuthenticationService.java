@@ -2,6 +2,7 @@ package se.dsve.book_auth.services;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -32,8 +33,7 @@ public class AuthenticationService {
 
     public User signup(RegisterUserDto input) {
         // TODO: Write your code here
-        input.setPassword(passwordEncoder.encode(input.getPassword()));
-        User user = User.builder()
+            User user = User.builder()
                 .fullName(input.getFullName())
                 .email(input.getEmail())
                 .password(passwordEncoder.encode(input.getPassword()))
@@ -42,13 +42,13 @@ public class AuthenticationService {
     }
 
     public User authenticate(LoginUserDto input) {
-        // TODO: Write your code here
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(input.getEmail(), input.getPassword())
-        );
+        User user = (User) userRepository.findByEmail(input.getEmail())
+                .orElseThrow(() -> new BadCredentialsException("Invalid email or password"));
 
-        // Retrieve the user from the repository
-        return (User) userRepository.findByEmail(input.getEmail())
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+        if (!passwordEncoder.matches(input.getPassword(), user.getPassword())) {
+            throw new BadCredentialsException("Invalid email or password");
+        }
+
+        return user;
     }
 }
