@@ -42,6 +42,7 @@ public class AuthenticationService {
     }
 
     public User authenticate(LoginUserDto input) {
+        // TODO: Write your code here
         User user = (User) userRepository.findByEmail(input.getEmail())
                 .orElseThrow(() -> new BadCredentialsException("Invalid email or password"));
 
