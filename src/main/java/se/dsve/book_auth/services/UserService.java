@@ -24,9 +24,10 @@ public class UserService {
     }
 
     public User createUser(RegisterUserDto input) {
-        User user = new User();
-        user.setEmail(input.getEmail());
-        user.setPassword(passwordEncoder.encode(input.getPassword()));
+        User user = User.builder()
+                .email(input.getEmail())
+                .password(passwordEncoder.encode(input.getPassword()))
+                .build();
         return userRepository.save(user);
     }
 }
