@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 import se.dsve.book_auth.dtos.RegisterUserDto;
 import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.repository.UserRepository;
+import se.dsve.book_auth.services.UserService;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,8 +23,11 @@ public class UserService {
     }
 
     public List<User> allUsers() {
-        return (List<User>) userRepository.findAll();
+        List<User> users = new ArrayList<>();
+        userRepository.findAll().forEach(users::add);
+        return users;
     }
+
 
     public User createUser(RegisterUserDto input) {
         User user = User.builder()

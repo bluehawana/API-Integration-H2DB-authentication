@@ -33,12 +33,11 @@ public class AuthenticationService {
 
     public User signup(RegisterUserDto input) {
         // TODO: Write your code here
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(input.getEmail(), input.getPassword())
-        );
-
-        return (User) userRepository.findByEmail(input.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        User user = User.builder()
+                .email(input.getEmail())
+                .password(passwordEncoder.encode(input.getPassword()))
+                .build();
+        return userRepository.save(user);
     }
 
     public User authenticate(LoginUserDto input) {
