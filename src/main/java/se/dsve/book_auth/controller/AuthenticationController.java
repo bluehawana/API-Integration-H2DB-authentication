@@ -1,5 +1,6 @@
 package se.dsve.book_auth.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,9 @@ import se.dsve.book_auth.model.LoginResponse;
 import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.services.AuthenticationService;
 import se.dsve.book_auth.services.JwtService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RequestMapping("/auth")
 @RestController
@@ -35,7 +39,13 @@ public class AuthenticationController {
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
         User user = authenticationService.authenticate(loginUserDto);
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
         String token = jwtService.generateToken(user);
-        return ResponseEntity.ok(new LoginResponse(token, user.getId()));
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("userId", user.getId());
+        return ResponseEntity.ok((LoginResponse) response);
     }
 }
