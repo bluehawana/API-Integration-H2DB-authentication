@@ -57,7 +57,9 @@ public class BookService {
 
     public void deleteBook(Long id) {
         // TODO: Write your code here
-        bookRepository.deleteById(id);
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Book not found with id " + id));
+        bookRepository.delete(book);
     }
 
     private Book getBookOrFail(Long id) {
