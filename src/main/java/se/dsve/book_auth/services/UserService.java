@@ -15,12 +15,11 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
+        }
 
     public List<User> allUsers() {
         List<User> users = new ArrayList<>();
@@ -32,7 +31,7 @@ public class UserService {
     public User createUser(RegisterUserDto input) {
         User user = User.builder()
                 .email(input.getEmail())
-                .password(passwordEncoder.encode(input.getPassword()))
+                .password(input.getPassword())
                 .build();
         return userRepository.save(user);
     }
