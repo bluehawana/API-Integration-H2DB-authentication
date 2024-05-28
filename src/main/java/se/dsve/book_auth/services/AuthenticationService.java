@@ -9,6 +9,8 @@ import se.dsve.book_auth.dtos.RegisterUserDto;
 import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.repository.UserRepository;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class AuthenticationService {
     private final UserRepository userRepository;
@@ -42,6 +44,6 @@ public class AuthenticationService {
                 )
         );
         return (User) userRepository.findByEmail(input.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new NoSuchElementException("User not found"));
     }
 }
