@@ -38,14 +38,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
-        User user = authenticationService.authenticate(loginUserDto);
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-        String token = jwtService.generateToken(user);
-        Map<String, Object> response = new HashMap<>();
-        response.put("token", token);
-        response.put("userId", user.getId());
-        return ResponseEntity.ok((LoginResponse) response);
+        LoginResponse loginResponse = authenticationService.authenticate(loginUserDto);
+        return ResponseEntity.ok(loginResponse);
     }
 }
