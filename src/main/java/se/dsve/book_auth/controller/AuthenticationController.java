@@ -39,14 +39,20 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
-        LoginResponse loginResponse = authenticationService.authenticate(loginUserDto);
+        User user = authenticationService.authenticate(loginUserDto);
+        String token = jwtService.generateToken(user);
+        long expiresIn = jwtService.getExpirationTime();
+        LoginResponse loginResponse = new LoginResponse(token, expiresIn);
         return ResponseEntity.ok(loginResponse);
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody AuthenticationRequest request) {
         LoginUserDto loginUserDto = new LoginUserDto(request.getEmail(), request.getPassword());
-        LoginResponse loginResponse = authenticationService.authenticate(loginUserDto);
+        User user = authenticationService.authenticate(loginUserDto);
+        String token = jwtService.generateToken(user);
+        long expiresIn = jwtService.getExpirationTime();
+        LoginResponse loginResponse = new LoginResponse(token, expiresIn);
         return ResponseEntity.ok(loginResponse);
     }
 }

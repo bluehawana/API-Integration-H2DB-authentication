@@ -46,7 +46,7 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
-    public LoginResponse authenticate(LoginUserDto input) {
+    public User authenticate(LoginUserDto input) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         input.getEmail(),
@@ -59,6 +59,5 @@ public class AuthenticationService {
         String token = jwtService.generateToken(user);
         long expiresIn = jwtService.getExpirationTime();
 
-        return new LoginResponse(token, expiresIn);
-    }
+        return user;  }
 }
