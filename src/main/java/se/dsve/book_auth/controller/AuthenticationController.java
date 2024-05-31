@@ -12,6 +12,7 @@ import se.dsve.book_auth.model.LoginResponse;
 import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.services.AuthenticationService;
 import se.dsve.book_auth.services.JwtService;
+import se.dsve.book_auth.model.AuthenticationRequest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,13 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
+        LoginResponse loginResponse = authenticationService.authenticate(loginUserDto);
+        return ResponseEntity.ok(loginResponse);
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<LoginResponse> authenticate(@RequestBody AuthenticationRequest request) {
+        LoginUserDto loginUserDto = new LoginUserDto(request.getEmail(), request.getPassword());
         LoginResponse loginResponse = authenticationService.authenticate(loginUserDto);
         return ResponseEntity.ok(loginResponse);
     }

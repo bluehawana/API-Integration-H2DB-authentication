@@ -11,6 +11,7 @@ import se.dsve.book_auth.dtos.RegisterUserDto;
 import se.dsve.book_auth.model.LoginResponse;
 import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.repository.UserRepository;
+import se.dsve.book_auth.services.JwtService;
 
 import java.util.NoSuchElementException;
 

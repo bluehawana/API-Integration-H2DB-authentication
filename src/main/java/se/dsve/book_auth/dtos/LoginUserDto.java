@@ -13,4 +13,9 @@ public class LoginUserDto {
 
     @Schema(description = "Användarens lösenord", example = "SomethingSecure")
     private String password;
+
+    public LoginUserDto(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
