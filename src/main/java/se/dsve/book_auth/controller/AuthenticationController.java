@@ -16,6 +16,7 @@ import se.dsve.book_auth.model.AuthenticationRequest;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RequestMapping("/auth")
 @RestController
@@ -32,27 +33,33 @@ public class AuthenticationController {
     @PostMapping("/signup")
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         // TODO: Write your code here
-        User registeredUser = authenticationService.signup(registerUserDto);
-        return ResponseEntity.ok(registeredUser);
+        User user = authenticationService.signup(registerUserDto);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
-        User user = authenticationService.authenticate(loginUserDto);
-        String token = jwtService.generateToken(user);
-        long expiresIn = jwtService.getExpirationTime();
-        LoginResponse loginResponse = new LoginResponse(token, expiresIn);
-        return ResponseEntity.ok(loginResponse);
+Optional<Object> user = authenticationService.authenticate(loginUserDto);
+        if (user.isPresent()) {
+            String token = jwtService.generateToken((User) user.get());
+            long expiresIn = jwtService.getExpirationTime();
+            LoginResponse loginResponse = new LoginResponse(token, expiresIn);
+            return ResponseEntity.ok(loginResponse);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody AuthenticationRequest request) {
         LoginUserDto loginUserDto = new LoginUserDto(request.getEmail(), request.getPassword());
-        User user = authenticationService.authenticate(loginUserDto);
-        String token = jwtService.generateToken(user);
-        long expiresIn = jwtService.getExpirationTime();
-        LoginResponse loginResponse = new LoginResponse(token, expiresIn);
-        return ResponseEntity.ok(loginResponse);
+       Optional<Object> user = authenticationService.authenticate(loginUserDto);
+        if (user.isPresent()) {
+            String token = jwtService.generateToken((User) user.get());
+            long expiresIn = jwtService.getExpirationTime();
+            LoginResponse loginResponse = new LoginResponse(token, expiresIn);
+            return ResponseEntity.ok(loginResponse);
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 }
