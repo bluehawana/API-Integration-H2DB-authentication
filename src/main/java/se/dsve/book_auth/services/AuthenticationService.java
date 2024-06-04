@@ -36,7 +36,7 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
-    public Optional<User> authenticate(LoginUserDto input) {
+    public User authenticate(LoginUserDto input) {
         // TODO: Write your code here
         try {
             org.springframework.security.core.Authentication authentication = authenticationManager.authenticate(
@@ -44,12 +44,12 @@ public class AuthenticationService {
                             input.getEmail(), input.getPassword())
             );
             if (authentication.isAuthenticated()) {
-                return userRepository.findByEmail(input.getEmail());
+                return userRepository.findByEmail(input.getEmail()).get();
             }
         } catch (org.springframework.security.core.AuthenticationException e) {
             e.printStackTrace();
-            return Optional.empty();
+            return null;
         }
-        return Optional.empty();
+        return null;
     }
 }

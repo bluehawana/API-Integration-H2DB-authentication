@@ -40,7 +40,7 @@ public class AuthenticationController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
         // TODO: Write your code here
-        User user = authenticationService.authenticate(loginUserDto).get();
+        User user = authenticationService.authenticate(loginUserDto);
         if (user!=null) {
             String token = jwtService.generateToken((User) user);
             long expiresIn = jwtService.getExpirationTime();
@@ -53,9 +53,9 @@ public class AuthenticationController {
     @PostMapping("/authenticate")
     public ResponseEntity<LoginResponse> authenticate(@RequestBody AuthenticationRequest request) {
         LoginUserDto loginUserDto = new LoginUserDto(request.getEmail(), request.getPassword());
-       Optional<User> user = authenticationService.authenticate(loginUserDto);
-        if (user.isPresent()) {
-            String token = jwtService.generateToken((User) user.get());
+       User user = authenticationService.authenticate(loginUserDto);
+        if (user!=null) {
+            String token = jwtService.generateToken((User) user);
             long expiresIn = jwtService.getExpirationTime();
             LoginResponse loginResponse = new LoginResponse(token, expiresIn);
             return ResponseEntity.ok(loginResponse);
