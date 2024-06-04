@@ -36,7 +36,7 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
-    public Optional<Object> authenticate(LoginUserDto input) {
+    public Optional<User> authenticate(LoginUserDto input) {
         // TODO: Write your code here
         try {
             org.springframework.security.core.Authentication authentication = authenticationManager.authenticate(
