@@ -52,6 +52,6 @@ public class AuthenticationService {
             e.printStackTrace();
             throw new NoSuchElementException("User not authenticated");
         }
-        return null;
+        throw new NoSuchElementException("User not authenticated");
     }
 }
