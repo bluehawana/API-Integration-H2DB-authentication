@@ -34,6 +34,9 @@ public class AuthenticationController {
     public ResponseEntity<User> register(@RequestBody RegisterUserDto registerUserDto) {
         // TODO: Write your code here
         User user = authenticationService.signup(registerUserDto);
+        if (user!=null) {
+            return ResponseEntity.ok(user);
+        }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 
