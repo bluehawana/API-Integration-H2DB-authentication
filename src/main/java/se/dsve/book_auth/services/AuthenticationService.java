@@ -10,6 +10,7 @@ import se.dsve.book_auth.model.User;
 import se.dsve.book_auth.repository.UserRepository;
 
 import javax.naming.AuthenticationException;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -49,7 +50,7 @@ public class AuthenticationService {
             }
         } catch (org.springframework.security.core.AuthenticationException e) {
             e.printStackTrace();
-            return null;
+            throw new NoSuchElementException("User not authenticated");
         }
         return null;
     }
