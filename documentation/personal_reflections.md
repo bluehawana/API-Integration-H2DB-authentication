@@ -8,37 +8,37 @@ OBS!!! Ändra absolut inte på rubrikerna i denna fil!!!!
 ### Vad handlar uppgiften om?
 
 --- Skriv ovanför och ta inte bort denna raden ---
-
+Denna uppgift är spingboot project som hantera två olika authentication en till book api en till user api som användare kan registrera sig och logga in, authenticate sig och få en token som användare kan använda för att göra request till book api.
 ### Hur uppfattade du uppgiften initialt?
-
+När jag läste uppgiften första gången så tänkte jag att det skulle vara en ganska enkel uppgift. Jag tänkte att det skulle vara en uppgift som jag skulle kunna göra på en dag. Men efter att jag hade börjat med uppgiften så insåg jag att det var mycket mer komplicerat än vad jag hade trott.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ## Planering och genomförande
 
 ### Hur planerade du att lösa uppgiften?
-
+Jag planerade att lösa uppgiften inom en dag. Jag tänkte att jag skulle kunna göra uppgiften på en dag eftersom jag hade gjort liknande uppgifter tidigare. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Det fanns så många fel när jag provade på gitlab, ibland de var svåra att lösa. Jag tänkte att jag skulle kunna lösa uppgiften genom att använda mig av mina tidigare.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ### Vilka steg tog du för att lösa uppgiften, skiljer sig ditt utförande från tidigare uppgifter?
-
+Den först steg jag tog var att läsa igenom uppgiften och förstå vad som förväntades av mig. Jag tänkte att jag skulle kunna lösa uppgiften genom att använda mig av mina tidigare erfarenheter. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda springboot authenticationmanager och userdetailservice för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa projektet. För det andra steg, jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte att jag skulle kunna använda mig av mina tidigare erfarenheter för att lösa uppgiften. Jag tänkte det är jätte viktig att få man en bra förståelse av uppgiften innan kod.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ## Utmaningar och lösningar
 
 ### Vilka utmaningar stötte du på under projektet?
-
+Några av de största utmaningarna under projektet var att sätta sig in i den befintliga kodbasen och förstå hur de olika delarna hängde ihop. Det tog tid att analysera koden och identifiera var felet låg som gjorde att testet inte gick igenom. En annan utmaning var att komma fram till den bästa lösningen som både fick testet att passera och följde god kodkvalitet och praxis.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ### Hur löste du dessa utmaningar?
-
+För att lösa utmaningarna började jag med att noggrant gå igenom koden, särskilt AuthenticationService-klassen och dess authenticate-metod. Jag analyserade flödet och identifierade de delar som kunde orsaka problemet. Sedan experimenterade jag med olika lösningar, testade dem mot testet och utvärderade resultatet. Jag sökte också efter bästa praxis och riktlinjer för att skriva robust och underhållbar kod. Genom en kombination av felsökning, refaktorering och följande av etablerade mönster kom jag fram till den slutliga lösningen.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ## Reflektion och utvärdering
 
 ### Vad lärde du dig genom att genomföra projektet?
-
+Genom att genomföra detta projekt fick jag värdefull erfarenhet av att arbeta med en befintlig kodbas och felsöka problem i en realistisk miljö. Jag lärde mig vikten av att ta sig tid att förstå koden innan man försöker göra ändringar, och hur man effektivt kan felsöka och testa lösningar. Jag fick också en djupare förståelse för autentisering och hantering av fel i en Spring Boot-applikation. Dessutom förbättrade projektet min förmåga att skriva ren, läsbar och underhållbar kod som följer bästa praxis.
 --- Skriv ovanför och ta inte bort denna raden ---
 
 ### Vilka möjligheter ser du för framtida projekt baserat på denna erfarenhet?
-
+Erfarenheten från detta projekt öppnar upp många möjligheter för framtida utveckling. Jag känner mig nu mer självsäker i att ta mig an projekt som involverar felsökning och arbete med befintlig kod. Jag ser också potential att fördjupa mina kunskaper inom autentisering och säkerhet i webbapplikationer. Dessutom har jag fått en bättre förståelse för vikten av testdriven utveckling och hur det kan leda till mer robust och underhållbar kod. I framtida projekt vill jag fortsätta att tillämpa och bygga vidare på dessa lärdomar för att leverera högkvalitativa lösningar.
 --- Skriv ovanför och ta inte bort denna raden ---
