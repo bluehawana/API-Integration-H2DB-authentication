@@ -6,9 +6,9 @@ OBS!!! Ändra absolut inte på rubrikerna i denna fil!!!!
 ## Inledning
 
 ### Vad handlar uppgiften om?
-
+Denna uppgift är spingboot project som hantera två olika authentication en till book api en till user api som användare kan registrera sig och logga in, authenticate sig och få en token som användare kan använda för att göra request till book api. Denna uppgift är att implementera en autentiseringsmekanism i en befintlig Spring Boot-applikation. Målet är att skapa en fungerande autentiseringsprocess som tillåter användare att logga in och få en autentiserings-token som de kan använda för att göra säkra anrop till en REST API. Uppgiften kräver att följande krav uppfylls: Användaren ska kunna registrera sig och logga in med användarnamn och lösenord. Användaren ska få en autentiserings-token efter att ha loggat in. Token ska vara giltig i en viss tid. Token ska användas för att göra säkra anrop till en REST API. Token ska kunna användas för att autentisera användaren och ge åtkomst till skyddade resurser. Uppgiften kräver att du implementerar en autentiseringsmekanism som följer bästa praxis och säkerhetsstandarder. Du ska använda dig av Spring Security och JWT för att implementera autentisering och auktorisering. Du ska också skriva enhetstester för att validera att autentiseringsprocessen fungerar korrekt.
 --- Skriv ovanför och ta inte bort denna raden ---
-Denna uppgift är spingboot project som hantera två olika authentication en till book api en till user api som användare kan registrera sig och logga in, authenticate sig och få en token som användare kan använda för att göra request till book api.
+
 ### Hur uppfattade du uppgiften initialt?
 När jag läste uppgiften första gången så tänkte jag att det skulle vara en ganska enkel uppgift. Jag tänkte att det skulle vara en uppgift som jag skulle kunna göra på en dag. Men efter att jag hade börjat med uppgiften så insåg jag att det var mycket mer komplicerat än vad jag hade trott.
 --- Skriv ovanför och ta inte bort denna raden ---
