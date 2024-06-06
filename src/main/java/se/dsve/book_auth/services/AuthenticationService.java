@@ -45,13 +45,16 @@ public class AuthenticationService {
                     new UsernamePasswordAuthenticationToken(
                             input.getEmail(), input.getPassword())
             );
-            if (authentication.isAuthenticated()) {
-                return userRepository.findByEmail(input.getEmail()).get();
+            if (authentication != null && authentication.isAuthenticated()) {
+                return userRepository.findByEmail(input.getEmail()).orElseThrow(() ->
+                        new NoSuchElementException("User not found"));
+            } else {
+                throw new NoSuchElementException("User not authenticated");
             }
         } catch (org.springframework.security.core.AuthenticationException e) {
             e.printStackTrace();
             throw new NoSuchElementException("User not authenticated");
         }
-        throw new NoSuchElementException("User not authenticated");
     }
 }
+
