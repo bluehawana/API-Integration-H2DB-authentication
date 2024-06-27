@@ -36,3 +36,5 @@ build/
 
 
 /data/
+
+/src/main/resources/application.properties
